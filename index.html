@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brochure Horarios y Servicios</title>
+    <title>Brochure Horarios y Servicios - Iberostar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background: linear-gradient(135deg, #0a504e, #1a7c5e);
             color: #333;
             min-height: 100vh;
             display: flex;
@@ -26,71 +26,131 @@
         
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
             overflow: hidden;
             margin: 20px;
         }
         
         header {
-            background: #2c3e50;
+            background: linear-gradient(to right, #2a8c62, #3ab47c);
             color: white;
             text-align: center;
-            padding: 25px 20px;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        
+        .lang-select {
+            background: #1a5c3a; /* Verde oscuro */
+            color: white;
+            border: 2px solid #7fff00; /* Verde fosforescente claro */
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 15px;
+            padding-right: 35px;
+        }
+        
+        .lang-select:hover {
+            border-color: #adff2f;
+            box-shadow: 0 0 8px rgba(127, 255, 0, 0.6);
+        }
+        
+        .lang-select option {
+            background: #1a5c3a;
+            color: white;
+            padding: 8px;
         }
         
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .hotel-selection {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 40px 20px;
-            background: #f8f9fa;
+            gap: 40px;
+            padding: 50px 20px;
+            background: #f0fff8;
         }
         
         .hotel-btn {
-            background: #3498db;
+            background: linear-gradient(to bottom, #3ab47c, #2a8c62);
             color: white;
             border: none;
-            padding: 20px 40px;
-            border-radius: 10px;
-            font-size: 1.3rem;
+            padding: 25px 30px;
+            border-radius: 12px;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 7px 20px rgba(58, 180, 124, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            min-width: 180px;
+            gap: 15px;
+            min-width: 220px;
+            text-align: center;
         }
         
         .hotel-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            background: #2980b9;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(58, 180, 124, 0.4);
+            background: linear-gradient(to bottom, #43d492, #32a572);
         }
         
         .hotel-btn i {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 50%;
         }
         
         .hotel-info {
             display: none;
-            padding: 30px;
+            padding: 35px;
             background: white;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .info-active {
@@ -101,22 +161,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
         }
         
         .back-btn {
             background: #e74c3c;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 6px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
             font-weight: 500;
+            transition: background 0.3s;
         }
         
         .back-btn:hover {
@@ -124,41 +185,51 @@
         }
         
         .hotel-title {
-            font-size: 1.8rem;
-            color: #2c3e50;
+            font-size: 2rem;
+            color: #2a8c62;
+            font-weight: 700;
         }
         
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 35px;
         }
         
         .info-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            background: #f7fcf9;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3ab47c;
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
         }
         
         .info-card h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
+            color: #2a8c62;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #3ab47c;
+            font-size: 1.4rem;
         }
         
         .info-item {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
         }
         
         .info-item i {
-            color: #3498db;
+            color: #3ab47c;
             margin-top: 4px;
+            font-size: 1.2rem;
+            min-width: 25px;
         }
         
         .service-list {
@@ -166,336 +237,678 @@
         }
         
         .service-list li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 12px;
+            padding-left: 30px;
             position: relative;
         }
         
         .service-list li:before {
             content: "•";
-            color: #3498db;
+            color: #3ab47c;
             font-weight: bold;
+            font-size: 1.5rem;
             position: absolute;
             left: 0;
+            top: -5px;
         }
         
         .highlight {
-            background: #ffeaa7;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #fdcb6e;
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            border-left: 4px solid #ffcc00;
+        }
+        
+        .highlight h3 {
+            color: #d35400;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         footer {
             text-align: center;
-            padding: 20px;
-            background: #2c3e50;
+            padding: 25px;
+            background: #2a8c62;
             color: white;
             margin-top: auto;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             border-radius: 0 0 15px 15px;
         }
         
-        @media (max-width: 768px) {
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .footer-contact {
+            text-align: right;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.7);
+            transition: all 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #ffcc00;
+            border-bottom: 1px solid #ffcc00;
+        }
+        
+        @media (max-width: 900px) {
             .hotel-selection {
                 flex-direction: column;
                 align-items: center;
+                gap: 25px;
             }
             
             .hotel-btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
             }
             
             .info-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .hotel-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .footer-contact {
+                text-align: center;
+            }
+            
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 0 auto 20px;
+                width: fit-content;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hotel-title {
+                font-size: 1.6rem;
+            }
+            
+            .info-card {
+                padding: 20px 15px;
+            }
+        }
+        
+        .print-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        
+        .print-btn:hover {
+            background: #219653;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Brochure Horarios y Servicios</h1>
-            <p class="subtitle">Seleccione un hotel para ver su información</p>
+            <div class="logo">IBEROSTAR</div>
+            <div class="language-selector">
+                <select class="lang-select" id="languageSelector">
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                </select>
+            </div>
+            <h1 id="main-title">Brochure Horarios y Servicios</h1>
+            <p class="subtitle" id="subtitle">Seleccione un hotel para ver información detallada de horarios y servicios disponibles</p>
         </header>
         
         <div class="hotel-selection">
             <button class="hotel-btn" onclick="showHotelInfo('hotel1')">
-                <i class="fas fa-hotel"></i>
-                Hotel 1
+                <i class="fas fa-cocktail"></i>
+                <span id="hotel1-btn">Hotel Iberostar Coral Esmeralda</span>
             </button>
             <button class="hotel-btn" onclick="showHotelInfo('hotel2')">
-                <i class="fas fa-hotel"></i>
-                Hotel 2
+                <i class="fas fa-umbrella-beach"></i>
+                <span id="hotel2-btn">Hotel Iberostar Selection Esmeralda</span>
             </button>
         </div>
         
         <div id="hotel1" class="hotel-info">
             <div class="hotel-header">
-                <h2 class="hotel-title">Hotel 1 - Información de Servicios</h2>
+                <h2 class="hotel-title" id="hotel1-title">Hotel Iberostar Coral Esmeralda</h2>
                 <button class="back-btn" onclick="showHotelSelection()">
-                    <i class="fas fa-arrow-left"></i> Volver
+                    <i class="fas fa-arrow-left"></i> <span id="back-text">Volver a selección</span>
                 </button>
             </div>
             
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>Horarios</h3>
+                    <h3 id="room-hours-title">Horarios de habitación</h3>
                     <div class="info-item">
                         <i class="fas fa-door-open"></i>
                         <div>
-                            <strong>HORA DE ENTRADA:</strong> 4:00 pm
+                            <strong id="checkin-text">HORA DE ENTRADA:</strong> 16:00
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-door-closed"></i>
                         <div>
-                            <strong>HORA DE SALIDA:</strong> 12:00 m
+                            <strong id="checkout-text">HORA DE SALIDA:</strong> 12:00
                         </div>
                     </div>
                 </div>
                 
                 <div class="info-card">
-                    <h3>Contactos</h3>
+                    <h3 id="contacts-title">Contactos importantes</h3>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <strong>Teléfono en Recepción:</strong> 2885
+                            <strong id="reception-text">Teléfono en Recepción:</strong> 1455
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-headset"></i>
                         <div>
-                            <strong>Servicio al Cliente:</strong> 2812
+                            <strong id="service-text">Servicio al Cliente:</strong> 1415
                         </div>
                     </div>
                 </div>
                 
                 <div class="info-card">
-                    <h3>Servicios</h3>
+                    <h3 id="services-title">Servicios generales</h3>
                     <ul class="service-list">
-                        <li>Wi-Fi gratuito 24/7 en todo el hotel</li>
-                        <li>Pagos con Visa y Mastercard</li>
+                        <li id="wifi-service">Wi-Fi gratuito 24/7 en todo el hotel</li>
+                        <li id="payment-service">Pagos con Visa y Mastercard</li>
                     </ul>
                 </div>
                 
                 <div class="info-card">
-                    <h3>Restaurante Buffet</h3>
+                    <h3 id="restaurant-title">Restaurante Buffet</h3>
                     <div class="info-item">
                         <i class="fas fa-utensils"></i>
                         <div>
-                            <strong>Desayuno:</strong> 7:30am - 10:30am
+                            <strong id="breakfast-text">Desayuno:</strong> 7:30am - 10:30am
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-utensils"></i>
                         <div>
-                            <strong>Almuerzo:</strong> 1:00pm - 3:00pm
+                            <strong id="lunch-text">Almuerzo:</strong> 1:00pm - 3:00pm
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-utensils"></i>
                         <div>
-                            <strong>Cena:</strong> 7:00pm - 10:00pm
+                            <strong id="dinner-text">Cena:</strong> 7:00pm - 10:00pm
                         </div>
                     </div>
                 </div>
                 
                 <div class="info-card">
-                    <h3>Bares</h3>
+                    <h3 id="bars-title">Bares</h3>
                     <div class="info-item">
                         <i class="fas fa-glass-martini-alt"></i>
                         <div>
-                            <strong>Bar del Lobby:</strong> 7:00am - 1:00am
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-cocktail"></i>
-                        <div>
-                            <strong>Bar de la Piscina:</strong> 9:00am - 5:00pm
+                            <strong id="lobby-bar">Bar del Lobby:</strong> 7:00am - 1:00am
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-umbrella-beach"></i>
                         <div>
-                            <strong>Bar de la Playa:</strong> 9:00am - 5:00pm
+                            <strong id="beach-bar">Bar de la Playa:</strong> 9:00am - 5:00pm
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-hamburger"></i>
                         <div>
-                            <strong>Snack BAR:</strong> 9:00am - 7:00pm
+                            <strong id="snack-bar">Snack BAR:</strong> 9:00am - 7:00pm
                         </div>
                     </div>
                     <div class="info-item">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-smoking"></i>
                         <div>
-                            <strong>Bar Deportivo:</strong> 3:00pm - 7:00am
+                            <strong id="cigar-bar">Cigar BAR:</strong> 3:00pm - 11:00pm
                         </div>
                     </div>
                 </div>
                 
                 <div class="info-card">
-                    <h3>Instalaciones</h3>
+                    <h3 id="facilities-title">Instalaciones</h3>
                     <div class="info-item">
                         <i class="fas fa-dumbbell"></i>
                         <div>
-                            <strong>Gimnasio:</strong> 7:00am - 7:00pm
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-swimming-pool"></i>
-                        <div>
-                            <strong>Clubhouse:</strong> 9:00am - 5:00pm
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="highlight">
-                <h3><i class="fas fa-info-circle"></i> Información Importante</h3>
-                <p>Para obtener toallas de playa, puede usar los tickets. Debe dejar el ticket en el mostrador de toallas, donde le proporcionarán toallas que podrá cambiar tantas veces como desee durante su estancia. El día de su salida, deberá devolver las toallas al club para recibir el ticket. Asegúrese de recoger su ticket antes de la salida; de lo contrario, se aplicará un cargo adicional.</p>
-            </div>
-        </div>
-        
-        <div id="hotel2" class="hotel-info">
-            <div class="hotel-header">
-                <h2 class="hotel-title">Hotel 2 - Información de Servicios</h2>
-                <button class="back-btn" onclick="showHotelSelection()">
-                    <i class="fas fa-arrow-left"></i> Volver
-                </button>
-            </div>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Horarios</h3>
-                    <div class="info-item">
-                        <i class="fas fa-door-open"></i>
-                        <div>
-                            <strong>HORA DE ENTRADA:</strong> 3:00 pm
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-door-closed"></i>
-                        <div>
-                            <strong>HORA DE SALIDA:</strong> 11:00 am
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Contactos</h3>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Teléfono en Recepción:</strong> 3000
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-headset"></i>
-                        <div>
-                            <strong>Servicio al Cliente:</strong> 3001
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Servicios</h3>
-                    <ul class="service-list">
-                        <li>Wi-Fi gratuito 24/7 en todo el hotel</li>
-                        <li>Pagos con Visa, Mastercard y American Express</li>
-                        <li>Estacionamiento gratuito</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Restaurante Buffet</h3>
-                    <div class="info-item">
-                        <i class="fas fa-utensils"></i>
-                        <div>
-                            <strong>Desayuno:</strong> 6:30am - 10:30am
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-utensils"></i>
-                        <div>
-                            <strong>Almuerzo:</strong> 12:30pm - 3:30pm
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-utensils"></i>
-                        <div>
-                            <strong>Cena:</strong> 7:00pm - 11:00pm
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Bares</h3>
-                    <div class="info-item">
-                        <i class="fas fa-glass-martini-alt"></i>
-                        <div>
-                            <strong>Bar del Lobby:</strong> 8:00am - 2:00am
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-cocktail"></i>
-                        <div>
-                            <strong>Bar de la Piscina:</strong> 10:00am - 6:00pm
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-umbrella-beach"></i>
-                        <div>
-                            <strong>Bar de la Playa:</strong> 10:00am - 6:00pm
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-hamburger"></i>
-                        <div>
-                            <strong>Snack BAR:</strong> 10:00am - 8:00pm
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Instalaciones</h3>
-                    <div class="info-item">
-                        <i class="fas fa-dumbbell"></i>
-                        <div>
-                            <strong>Gimnasio:</strong> 6:00am - 10:00pm
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-swimming-pool"></i>
-                        <div>
-                            <strong>Clubhouse:</strong> 8:00am - 8:00pm
+                            <strong id="gym-text">Gimnasio:</strong> 7:00am - 7:00pm
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-spa"></i>
                         <div>
-                            <strong>Spa:</strong> 9:00am - 7:00pm
+                            <strong id="spa-text">SPA:</strong> 9:00am - 5:00pm
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-swimming-pool"></i>
+                        <div>
+                            <strong id="clubhouse-text">Clubhouse:</strong> 9:00am - 5:00pm
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="highlight">
-                <h3><i class="fas fa-info-circle"></i> Información Importante</h3>
-                <p>Para obtener toallas de playa, puede usar los tickets. Debe dejar el ticket en el mostrador de toallas, donde le proporcionarán toallas que podrá cambiar tantas veces como desee durante su estancia. El día de su salida, deberá devolver las toallas al club para recibir el ticket. Asegúrese de recoger su ticket antes de la salida; de lo contrario, se aplicará un cargo adicional.</p>
+                <h3><i class="fas fa-info-circle"></i> <span id="important-title">Información importante sobre toallas</span></h3>
+                <p id="towel-info">Para obtener toallas de playa, puede usar los tickets. Debe dejar el ticket en el mostrador de toallas, donde le proporcionarán toallas que podrá cambiar tantas veces como desee durante su estancia. El día de su salida, deberá devolver las toallas al club para recibir el ticket. Asegúrese de recoger su ticket antes de la salida; de lo contrario, se aplicará un cargo adicional.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="print-btn" onclick="window.print()">
+                    <i class="fas fa-print"></i> <span id="print-text">Imprimir información</span>
+                </button>
+            </div>
+        </div>
+        
+        <div id="hotel2" class="hotel-info">
+            <div class="hotel-header">
+                <h2 class="hotel-title" id="hotel2-title">Hotel Iberostar Selection Esmeralda</h2>
+                <button class="back-btn" onclick="showHotelSelection()">
+                    <i class="fas fa-arrow-left"></i> <span class="back-text">Volver a selección</span>
+                </button>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3 class="room-hours-title">Horarios de habitación</h3>
+                    <div class="info-item">
+                        <i class="fas fa-door-open"></i>
+                        <div>
+                            <strong class="checkin-text">HORA DE ENTRADA:</strong> 16:00
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-door-closed"></i>
+                        <div>
+                            <strong class="checkout-text">HORA DE SALIDA:</strong> 12:00
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3 class="contacts-title">Contactos importantes</h3>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong class="reception-text">Teléfono en Recepción:</strong> 2885
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <strong class="service-text">Servicio al Cliente:</strong> 2812
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3 class="services-title">Servicios generales</h3>
+                    <ul class="service-list">
+                        <li class="wifi-service">Wi-Fi gratuito 24/7 en todo el hotel</li>
+                        <li class="payment-service">Pagos con Visa y Mastercard</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3 class="restaurant-title">Restaurante Buffet</h3>
+                    <div class="info-item">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <strong class="breakfast-text">Desayuno:</strong> 7:30am - 10:30am
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <strong class="lunch-text">Almuerzo:</strong> 1:00pm - 3:00pm
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <strong class="dinner-text">Cena:</strong> 7:00pm - 10:00pm
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3 class="bars-title">Bares</h3>
+                    <div class="info-item">
+                        <i class="fas fa-glass-martini-alt"></i>
+                        <div>
+                            <strong class="lobby-bar">Bar del Lobby:</strong> 7:00am - 1:00am
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <div>
+                            <strong class="beach-bar">Bar de la Playa:</strong> 9:00am - 5:00pm
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-hamburger"></i>
+                        <div>
+                            <strong class="snack-bar">Snack BAR:</strong> 9:00am - 7:00pm
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-tv"></i>
+                        <div>
+                            <strong class="sports-bar">Bar Deportivo:</strong> 3:00pm - 7:00am
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3 class="facilities-title">Instalaciones</h3>
+                    <div class="info-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <div>
+                            <strong class="gym-text">Gimnasio:</strong> 7:00am - 7:00pm
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-swimming-pool"></i>
+                        <div>
+                            <strong class="clubhouse-text">Clubhouse:</strong> 9:00am - 5:00pm
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3><i class="fas fa-info-circle"></i> <span class="important-title">Información importante sobre toallas</span></h3>
+                <p class="towel-info">Para obtener toallas de playa, puede usar los tickets. Debe dejar el ticket en el mostrador de toallas, donde le proporcionarán toallas que podrá cambiar tantas veces como desee durante su estancia. El día de su salida, deberá devolver las toallas al club para recibir el ticket. Asegúrese de recoger su ticket antes de la salida; de lo contrario, se aplicará un cargo adicional.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="print-btn" onclick="window.print()">
+                    <i class="fas fa-print"></i> <span class="print-text">Imprimir información</span>
+                </button>
             </div>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2023 Brochure Horarios y Servicios - Todos los derechos reservados</p>
+        <div class="footer-content">
+            <div class="footer-logo">IBEROSTAR Hoteles & Resorts</div>
+            <div class="footer-contact">
+                <p id="reservations-text">Para reservaciones: <a href="https://www.ibercuba.com/mx/hoteles/cayo-cruz/" class="footer-link" target="_blank">https://www.ibercuba.com/mx/hoteles/cayo-cruz/</a></p>
+                <p><span id="rights-text">Todos los derechos reservados</span></p>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // Datos de traducción
+        const translations = {
+            es: {
+                mainTitle: "Brochure Horarios y Servicios",
+                subtitle: "Seleccione un hotel para ver información detallada de horarios y servicios disponibles",
+                hotel1Btn: "Hotel Iberostar Coral Esmeralda",
+                hotel2Btn: "Hotel Iberostar Selection Esmeralda",
+                back: "Volver a selección",
+                roomHours: "Horarios de habitación",
+                checkin: "HORA DE ENTRADA:",
+                checkout: "HORA DE SALIDA:",
+                contacts: "Contactos importantes",
+                reception: "Teléfono en Recepción:",
+                service: "Servicio al Cliente:",
+                services: "Servicios generales",
+                wifi: "Wi-Fi gratuito 24/7 en todo el hotel",
+                payment: "Pagos con Visa y Mastercard",
+                restaurant: "Restaurante Buffet",
+                breakfast: "Desayuno:",
+                lunch: "Almuerzo:",
+                dinner: "Cena:",
+                bars: "Bares",
+                lobbyBar: "Bar del Lobby:",
+                beachBar: "Bar de la Playa:",
+                snackBar: "Snack BAR:",
+                cigarBar: "Cigar BAR:",
+                facilities: "Instalaciones",
+                gym: "Gimnasio:",
+                spa: "SPA:",
+                clubhouse: "Clubhouse:",
+                important: "Información importante sobre toallas",
+                towelInfo: "Para obtener toallas de playa, puede usar los tickets. Debe dejar el ticket en el mostrador de toallas, donde le proporcionarán toallas que podrá cambiar tantas veces como desee durante su estancia. El día de su salida, deberá devolver las toallas al club para recibir el ticket. Asegúrese de recoger su ticket antes de la salida; de lo contrario, se aplicará un cargo adicional.",
+                print: "Imprimir información",
+                reservations: "Para reservaciones: ",
+                rights: "Todos los derechos reservados"
+            },
+            en: {
+                mainTitle: "Schedule and Services Brochure",
+                subtitle: "Select a hotel to view detailed information about schedules and available services",
+                hotel1Btn: "Iberostar Coral Esmeralda Hotel",
+                hotel2Btn: "Iberostar Selection Esmeralda Hotel",
+                back: "Back to selection",
+                roomHours: "Room schedules",
+                checkin: "CHECK-IN TIME:",
+                checkout: "CHECK-OUT TIME:",
+                contacts: "Important contacts",
+                reception: "Reception Phone:",
+                service: "Customer Service:",
+                services: "General services",
+                wifi: "Free 24/7 Wi-Fi throughout the hotel",
+                payment: "Payments with Visa and Mastercard",
+                restaurant: "Buffet Restaurant",
+                breakfast: "Breakfast:",
+                lunch: "Lunch:",
+                dinner: "Dinner:",
+                bars: "Bars",
+                lobbyBar: "Lobby Bar:",
+                beachBar: "Beach Bar:",
+                snackBar: "Snack BAR:",
+                cigarBar: "Cigar BAR:",
+                facilities: "Facilities",
+                gym: "Gym:",
+                spa: "SPA:",
+                clubhouse: "Clubhouse:",
+                important: "Important towel information",
+                towelInfo: "To obtain beach towels, you can use the tickets. You must leave the ticket at the towel counter, where they will provide you with towels that you can exchange as many times as you wish during your stay. On your departure day, you must return the towels to the club to receive the ticket. Make sure to collect your ticket before departure; otherwise, an additional charge will be applied.",
+                print: "Print information",
+                reservations: "For reservations: ",
+                rights: "All rights reserved"
+            },
+            ru: {
+                mainTitle: "Брошюра с расписанием и услугами",
+                subtitle: "Выберите отель для просмотра подробной информации о расписании и доступных услугах",
+                hotel1Btn: "Отель Iberostar Coral Esmeralda",
+                hotel2Btn: "Отель Iberostar Selection Esmeralda",
+                back: "Вернуться к выбору",
+                roomHours: "Время заселения",
+                checkin: "ВРЕМЯ ЗАЕЗДА:",
+                checkout: "ВРЕМЯ ВЫЕЗДА:",
+                contacts: "Важные контакты",
+                reception: "Телефон ресепшена:",
+                service: "Обслуживание клиентов:",
+                services: "Основные услуги",
+                wifi: "Бесплатный Wi-Fi 24/7 по всему отелю",
+                payment: "Оплата Visa и Mastercard",
+                restaurant: "Ресторан-буфет",
+                breakfast: "Завтрак:",
+                lunch: "Обед:",
+                dinner: "Ужин:",
+                bars: "Бары",
+                lobbyBar: "Лобби-бар:",
+                beachBar: "Пляжный бар:",
+                snackBar: "Снек-бар:",
+                cigarBar: "Сигарный бар:",
+                facilities: "Удобства",
+                gym: "Тренажерный зал:",
+                spa: "СПА:",
+                clubhouse: "Клубный дом:",
+                important: "Важная информация о полотенцах",
+                towelInfo: "Для получения пляжных полотенец вы можете использовать талоны. Вы должны оставить талон на стойке для полотенец, где вам выдадут полотенца, которые вы можете менять сколько угодно раз во время вашего пребывания. В день выезда вы должны вернуть полотенца в клуб, чтобы получить талон. Обязательно заберите свой талон перед отъездом; в противном случае будет применена дополнительная плата.",
+                print: "Распечатать информацию",
+                reservations: "Для бронирования: ",
+                rights: "Все права защищены"
+            }
+        };
+
+        // Inicializar el selector de idioma
+        document.getElementById('languageSelector').addEventListener('change', function() {
+            changeLanguage(this.value);
+        });
+
+        // Función para cambiar el idioma
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            
+            // Actualizar textos
+            document.getElementById('main-title').textContent = t.mainTitle;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('hotel1-btn').textContent = t.hotel1Btn;
+            document.getElementById('hotel2-btn').textContent = t.hotel2Btn;
+            document.getElementById('back-text').textContent = t.back;
+            document.getElementById('room-hours-title').textContent = t.roomHours;
+            document.getElementById('checkin-text').textContent = t.checkin;
+            document.getElementById('checkout-text').textContent = t.checkout;
+            document.getElementById('contacts-title').textContent = t.contacts;
+            document.getElementById('reception-text').textContent = t.reception;
+            document.getElementById('service-text').textContent = t.service;
+            document.getElementById('services-title').textContent = t.services;
+            document.getElementById('wifi-service').textContent = t.wifi;
+            document.getElementById('payment-service').textContent = t.payment;
+            document.getElementById('restaurant-title').textContent = t.restaurant;
+            document.getElementById('breakfast-text').textContent = t.breakfast;
+            document.getElementById('lunch-text').textContent = t.lunch;
+            document.getElementById('dinner-text').textContent = t.dinner;
+            document.getElementById('bars-title').textContent = t.bars;
+            document.getElementById('lobby-bar').textContent = t.lobbyBar;
+            document.getElementById('beach-bar').textContent = t.beachBar;
+            document.getElementById('snack-bar').textContent = t.snackBar;
+            document.getElementById('cigar-bar').textContent = t.cigarBar;
+            document.getElementById('facilities-title').textContent = t.facilities;
+            document.getElementById('gym-text').textContent = t.gym;
+            document.getElementById('spa-text').textContent = t.spa;
+            document.getElementById('clubhouse-text').textContent = t.clubhouse;
+            document.getElementById('important-title').textContent = t.important;
+            document.getElementById('towel-info').textContent = t.towelInfo;
+            document.getElementById('print-text').textContent = t.print;
+            document.getElementById('reservations-text').innerHTML = t.reservations + '<a href="https://www.ibercuba.com/mx/hoteles/cayo-cruz/" class="footer-link" target="_blank">https://www.ibercuba.com/mx/hoteles/cayo-cruz/</a>';
+            document.getElementById('rights-text').textContent = t.rights;
+            
+            // Actualizar textos en el segundo hotel
+            document.querySelectorAll('.back-text').forEach(el => {
+                el.textContent = t.back;
+            });
+            document.querySelectorAll('.room-hours-title').forEach(el => {
+                el.textContent = t.roomHours;
+            });
+            document.querySelectorAll('.checkin-text').forEach(el => {
+                el.textContent = t.checkin;
+            });
+            document.querySelectorAll('.checkout-text').forEach(el => {
+                el.textContent = t.checkout;
+            });
+            document.querySelectorAll('.contacts-title').forEach(el => {
+                el.textContent = t.contacts;
+            });
+            document.querySelectorAll('.reception-text').forEach(el => {
+                el.textContent = t.reception;
+            });
+            document.querySelectorAll('.service-text').forEach(el => {
+                el.textContent = t.service;
+            });
+            document.querySelectorAll('.services-title').forEach(el => {
+                el.textContent = t.services;
+            });
+            document.querySelectorAll('.wifi-service').forEach(el => {
+                el.textContent = t.wifi;
+            });
+            document.querySelectorAll('.payment-service').forEach(el => {
+                el.textContent = t.payment;
+            });
+            document.querySelectorAll('.restaurant-title').forEach(el => {
+                el.textContent = t.restaurant;
+            });
+            document.querySelectorAll('.breakfast-text').forEach(el => {
+                el.textContent = t.breakfast;
+            });
+            document.querySelectorAll('.lunch-text').forEach(el => {
+                el.textContent = t.lunch;
+            });
+            document.querySelectorAll('.dinner-text').forEach(el => {
+                el.textContent = t.dinner;
+            });
+            document.querySelectorAll('.bars-title').forEach(el => {
+                el.textContent = t.bars;
+            });
+            document.querySelectorAll('.lobby-bar').forEach(el => {
+                el.textContent = t.lobbyBar;
+            });
+            document.querySelectorAll('.beach-bar').forEach(el => {
+                el.textContent = t.beachBar;
+            });
+            document.querySelectorAll('.snack-bar').forEach(el => {
+                el.textContent = t.snackBar;
+            });
+            document.querySelectorAll('.sports-bar').forEach(el => {
+                el.textContent = t.sportsBar || "Sports Bar:";
+            });
+            document.querySelectorAll('.facilities-title').forEach(el => {
+                el.textContent = t.facilities;
+            });
+            document.querySelectorAll('.gym-text').forEach(el => {
+                el.textContent = t.gym;
+            });
+            document.querySelectorAll('.clubhouse-text').forEach(el => {
+                el.textContent = t.clubhouse;
+            });
+            document.querySelectorAll('.important-title').forEach(el => {
+                el.textContent = t.important;
+            });
+            document.querySelectorAll('.towel-info').forEach(el => {
+                el.textContent = t.towelInfo;
+            });
+            document.querySelectorAll('.print-text').forEach(el => {
+                el.textContent = t.print;
+            });
+        }
+
         function showHotelInfo(hotelId) {
             // Ocultar todos los elementos de información del hotel
             document.querySelectorAll('.hotel-info').forEach(element => {
@@ -507,6 +920,9 @@
             
             // Ocultar la selección de botones
             document.querySelector('.hotel-selection').style.display = 'none';
+            
+            // Scroll suave hacia la parte superior de la información
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
         
         function showHotelSelection() {
@@ -517,6 +933,9 @@
             document.querySelectorAll('.hotel-info').forEach(element => {
                 element.classList.remove('info-active');
             });
+            
+            // Scroll suave hacia la selección de hoteles
+            document.querySelector('.hotel-selection').scrollIntoView({behavior: 'smooth'});
         }
     </script>
 </body>

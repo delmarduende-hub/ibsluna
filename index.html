@@ -707,7 +707,8 @@
                 spa: "SPA:",
                 clubhouse: "Clubhouse:",
                 important: "Información importante sobre toallas",
-                towelInfo: "Por favor, asegúrese de dejar todas sus toallas en la habitación al salir o se aplicará un cargo adicional.",
+                towelInfoHotel1: "Por favor, asegúrese de dejar todas sus toallas en la habitación al salir o se aplicará un cargo adicional.",
+                towelInfoHotel2: "Para obtener toallas de playa, puede usar los tickets. Debe dejar el ticket en el mostrador de toallas, donde le proporcionarán toallas que podrá cambiar tantas veces como desee durante su estancia. El día de su salida, deberá devolver las toallas al club para recibir el ticket. Asegúrese de recoger su ticket antes de la salida; de lo contrario, se aplicará un cargo adicional.",
                 print: "Imprimir información",
                 reservations: "Para reservaciones: ",
                 rights: "Todos los derechos reservados"
@@ -741,7 +742,8 @@
                 spa: "SPA:",
                 clubhouse: "Clubhouse:",
                 important: "Important towel information",
-                towelInfo: "Please make sure to leave all your towels in the room when checking out or an additional charge will be applied.",
+                towelInfoHotel1: "Please make sure to leave all your towels in the room when checking out or an additional charge will be applied.",
+                towelInfoHotel2: "To obtain beach towels, you can use the tickets. You must leave the ticket at the towel counter, where they will provide you with towels that you can exchange as many times as you wish during your stay. On your departure day, you must return the towels to the club to receive the ticket. Make sure to collect your ticket before departure; otherwise, an additional charge will be applied.",
                 print: "Print information",
                 reservations: "For reservations: ",
                 rights: "All rights reserved"
@@ -775,7 +777,8 @@
                 spa: "СПА:",
                 clubhouse: "Клубный дом:",
                 important: "Важная информация о полотенцах",
-                towelInfo: "Пожалуйста, убедитесь, что вы оставили все полотенца в номере при выезде, иначе будет применена дополнительная плата.",
+                towelInfoHotel1: "Пожалуйста, убедитесь, что вы оставили все полотенца в номере при выезде, иначе будет применена дополнительная плата.",
+                towelInfoHotel2: "Для получения пляжных полотенец вы можете использовать талоны. Вы должны оставить талон на стойке для полотенец, где вам выдадут полотенца, которые вы можете менять сколько угодно раз во время вашего пребывания. В день выезда вы должны вернуть полотенца в клуб, чтобы получить талон. Обязательно заберите свой талон перед отъездом; в противном случае будет применена дополнительная плата.",
                 print: "Распечатать информацию",
                 reservations: "Для бронирования: ",
                 rights: "Все права защищены"
@@ -819,7 +822,7 @@
             document.getElementById('gym-text').textContent = t.gym;
             document.getElementById('spa-text').textContent = t.spa;
             document.getElementById('important-title').textContent = t.important;
-            document.getElementById('towel-info').textContent = t.towelInfo;
+            document.getElementById('towel-info').textContent = t.towelInfoHotel1;
             document.getElementById('print-text').textContent = t.print;
             document.getElementById('reservations-text').innerHTML = t.reservations + '<a href="https://www.ibercuba.com" class="footer-link" target="_blank">https://www.ibercuba.com</a>';
             document.getElementById('rights-text').textContent = t.rights;
@@ -895,7 +898,7 @@
                 el.textContent = t.important;
             });
             document.querySelectorAll('.towel-info').forEach(el => {
-                el.textContent = t.towelInfo;
+                el.textContent = t.towelInfoHotel2;
             });
             document.querySelectorAll('.print-text').forEach(el => {
                 el.textContent = t.print;
@@ -930,6 +933,9 @@
             // Scroll suave hacia la selección de hoteles
             document.querySelector('.hotel-selection').scrollIntoView({behavior: 'smooth'});
         }
+
+        // Inicializar con español
+        changeLanguage('es');
     </script>
 </body>
 </html>
